@@ -20,7 +20,7 @@ Template file name syntax:
     %H  Hour (00..23)
     %M  Minute (00..59)
     %S  Second (00:60)
-""".format(f='python ' + __file__)
+""".format(f=__file__)
 
 from docopt import docopt
 from tkinter import Tk, messagebox, filedialog

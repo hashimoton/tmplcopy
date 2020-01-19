@@ -4,11 +4,21 @@ Tmplcopy
 
 Interactive template file copier
 
+======================
+How to use
+======================
+
+With a dialog, select template files.
+Then the files are copied to your specified directory.
+
+Command Line options
+------------------------
+
 Usage::
 
-    python .\tmplcopy.py [-t <TEMPLATE_DIR>] [DESTINATION_DIR]
-    python .\tmplcopy.py -h | --help
-    python .\tmplcopy.py -v | --version
+    .\tmplcopy.py [-t <TEMPLATE_DIR>] [DESTINATION_DIR]
+    .\tmplcopy.py -h | --help
+    .\tmplcopy.py -v | --version
 
 Arguments::
 
@@ -29,9 +39,36 @@ Template file name syntax::
     %M  Minute (00..59)
     %S  Second (00:60)
 
-Requirements::
 
-    Python3, docopt, tkinter
+==================
+Setup
+==================
+
+Requirements
+---------------
+
+Python3, docopt, tkinter
+
+
+Registering to Windows Context Menu
+--------------------------------------
+
+1. With Registory Editor, create a new key under HKEY_CLASSES_ROOT\\Directory\\Backgroundshell.
+
+    :name: tmplcopy
+    :value: Templates
+
+2. Create a sub key under tmplcopy.
+
+    :name: command
+    :value: \\path\\to\\pythonw.exe \\path\\to\\tmplcopy.py "%V"
+
+
+==================
+License
+==================
+
+Public Domain
 
 
 .. EOF
