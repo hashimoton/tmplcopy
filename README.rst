@@ -61,7 +61,7 @@ Registering to Windows Context Menu
 2. Create a sub key under tmplcopy.
 
     :name: command
-    :value: \\path\\to\\pythonw.exe \\path\\to\\tmplcopy.py "%V"
+    :value: \\path\\to\\pythonw.exe \\path\\to\\tmplcopy.py -t \\path\\to\\templates "%V"
 
 
 ==================
