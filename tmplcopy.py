@@ -14,12 +14,13 @@ Options:
     -v --version       Show version
 
 Template file name syntax:
-    %y  Year
-    %m  Month (01..12)
-    %d  Day (01..31)
-    %H  Hour (00..23)
-    %M  Minute (00..59)
-    %S  Second (00:60)
+    %y           Year
+    %m           Month (01..12)
+    %d           Day (01..31)
+    %H           Hour (00..23)
+    %M           Minute (00..59)
+    %S           Second (00:60)
+    _clipboard_  Paste from clipboard
 """.format(f=__file__)
 
 from docopt import docopt
@@ -58,7 +59,7 @@ def dest_path(src_path, dest_dir):
 
 # MAIN
 if __name__ == '__main__':
-  args = docopt(__doc__, version='1.0.0')
+  args = docopt(__doc__, version='1.1.0')
   
   root = Tk()
   root.withdraw()
@@ -81,7 +82,12 @@ if __name__ == '__main__':
     if os.path.exists(destination):
       abort('Already exists [%s]' % destination)
     
-    shutil.copyfile(source, destination)
+    if os.path.basename(source).startswith('_clipboard_'):
+      clipped = root.clipboard_get()
+      with open(destination, mode = 'w', encoding = 'utf-8') as dest_file:
+        dest_file.write(clipped)
+    else:
+      shutil.copyfile(source, destination)
   
   root.destroy()
   sys.exit(0)

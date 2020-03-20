@@ -32,12 +32,13 @@ Options::
 
 Template file name syntax::
 
-    %y  Year
-    %m  Month (01..12)
-    %d  Day (01..31)
-    %H  Hour (00..23)
-    %M  Minute (00..59)
-    %S  Second (00:60)
+    %y           Year
+    %m           Month (01..12)
+    %d           Day (01..31)
+    %H           Hour (00..23)
+    %M           Minute (00..59)
+    %S           Second (00:60)
+    _clipboard_  Paste from clipboard
 
 
 ==================
